@@ -8,111 +8,132 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
     body {
-      background: #0a0a0a;
+      background: #000;
       font-family: 'Montserrat', sans-serif;
     }
-    .neon-cyan {
-      box-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff;
-      border: 2px solid #00f5ff;
-    }
-    .neon-pink {
-      box-shadow: 0 0 5px #ff00f5, 0 0 10px #ff00f5;
-      border: 2px solid #ff00f5;
-    }
-    .neon-btn {
-      background: #ff00f5;
-      box-shadow: 0 0 15px #ff00f5;
-    }
-    .whatsapp-btn {
-      background: #25D366;
-      box-shadow: 0 0 10px #25D366;
-    }
     .hero-bg {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.jpg');
-      background-size: cover;
-      background-position: center;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 40%, #000814 100%);
+      position: relative;
+      overflow: hidden;
     }
-    .hot-card {
-      background: #151515;
-      border: 1px solid #222;
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(34,211,238,0.15) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
     }
     .neon-text-cyan {
-      text-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee;
+      text-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee, 0 0 30px #22d3ee;
+    }
+    .neon-btn {
+      background: #ec4899;
+      box-shadow: 0 0 15px #ec4899, 0 0 25px #ec4899;
+      transition: all 0.3s;
+    }
+    .neon-btn:hover {
+      box-shadow: 0 0 25px #ec4899, 0 0 40px #ec4899;
+      transform: scale(1.05);
+    }
+    .whatsapp-btn {
+      background: #22c55e;
+      box-shadow: 0 0 15px #22c55e;
+      transition: all 0.3s;
+    }
+    .whatsapp-btn:hover {
+      box-shadow: 0 0 25px #22c55e;
+      transform: scale(1.05);
+    }
+    .hot-card {
+      background: #0f0f0f;
+      border: 1px solid #1f1f1f;
+      transition: all 0.3s;
+    }
+    .hot-card:hover {
+      border: 1px solid #22d3ee;
+      box-shadow: 0 0 20px rgba(34,211,238,0.2);
     }
   </style>
 </head>
 <body class="text-white pb-20">
 
-  <!-- HEADER ME LOGO -->
-  <header class="text-center py-6">
-    <img src="logo.png" alt="Mister X Events" class="h-14 mx-auto">
+  <!-- HEADER ME LOGO PA SFOND TE ZI -->
+  <header class="text-center py-8 bg-black">
+    <img src="logo.png" alt="Mister X Events" class="h-20 mx-auto" style="mix-blend-mode: lighten; filter: brightness(1.3) drop-shadow(0 0 15px #22d3ee);">
   </header>
 
-  <!-- HERO -->
-  <div class="hero-bg h-64 flex flex-col items-center justify-center text-center px-4">
-    <h1 class="text-4xl font-extrabold mb-2 neon-text-cyan">Find Your Vibe.</h1>
-    <p class="text-lg text-gray-300">Tirana & Albania. All-In-One Place.</p>
+  <!-- HERO ME GRADIENT -->
+  <div class="hero-bg h-80 flex flex-col items-center justify-center text-center px-4 relative z-10">
+    <h1 class="text-5xl font-extrabold mb-3 neon-text-cyan">Find Your Vibe.</h1>
+    <p class="text-xl text-gray-300">Tirana & Albania. All-In-One Place.</p>
   </div>
 
   <!-- EVENTS -->
-  <div class="max-w-4xl mx-auto px-4 py-8 space-y-6">
+  <div class="max-w-4xl mx-auto px-4 py-10 space-y-6">
 
     <!-- ZAMNA -->
     <div class="hot-card rounded-2xl overflow-hidden">
-      <img src="zamna.jpg" class="w-full h-48 object-cover">
-      <div class="p-5">
-        <p class="text-cyan-400 font-bold mb-2">16 MAY | ZAMNA | TIRANA</p>
-        <div class="flex gap-3">
-          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20ZAMNA" class="neon-btn px-6 py-2 rounded-full font-bold">BILETA</a>
-          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20ZAMNA" class="whatsapp-btn px-6 py-2 rounded-full font-bold">VIP</a>
+      <img src="zamna.jpg" class="w-full h-56 object-cover">
+      <div class="p-6">
+        <p class="text-cyan-400 font-bold mb-3 text-lg">16 MAY | ZAMNA | TIRANA</p>
+        <div class="flex gap-4">
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20ZAMNA" class="neon-btn px-8 py-3 rounded-full font-bold">BILETA</a>
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20ZAMNA" class="whatsapp-btn px-8 py-3 rounded-full font-bold">VIP</a>
         </div>
       </div>
     </div>
 
     <!-- BLACK COFFEE -->
     <div class="hot-card rounded-2xl overflow-hidden">
-      <img src="black-coffee.jpg" class="w-full h-48 object-cover">
-      <div class="p-5">
-        <p class="text-cyan-400 font-bold mb-2">04 JUNE | BLACK COFFEE | TIRANA</p>
-        <div class="flex gap-3">
-          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20BLACK%20COFFEE" class="neon-btn px-6 py-2 rounded-full font-bold">BILETA</a>
-          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20BLACK%20COFFEE" class="whatsapp-btn px-6 py-2 rounded-full font-bold">VIP</a>
+      <img src="black-coffee.jpg" class="w-full h-56 object-cover">
+      <div class="p-6">
+        <p class="text-cyan-400 font-bold mb-3 text-lg">04 JUNE | BLACK COFFEE | TIRANA</p>
+        <div class="flex gap-4">
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20BLACK%20COFFEE" class="neon-btn px-8 py-3 rounded-full font-bold">BILETA</a>
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20BLACK%20COFFEE" class="whatsapp-btn px-8 py-3 rounded-full font-bold">VIP</a>
         </div>
       </div>
     </div>
 
     <!-- UNUM -->
     <div class="hot-card rounded-2xl overflow-hidden">
-      <img src="unum.jpg" class="w-full h-48 object-cover">
-      <div class="p-5">
-        <p class="text-cyan-400 font-bold mb-2">4-9 JUNE | UNUM FESTIVAL | SHENGJIN</p>
-        <div class="flex gap-3">
-          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20UNUM" class="neon-btn px-6 py-2 rounded-full font-bold">BILETA</a>
-          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20UNUM" class="whatsapp-btn px-6 py-2 rounded-full font-bold">VIP</a>
+      <img src="unum.jpg" class="w-full h-56 object-cover">
+      <div class="p-6">
+        <p class="text-cyan-400 font-bold mb-3 text-lg">4-9 JUNE | UNUM FESTIVAL | SHENGJIN</p>
+        <div class="flex gap-4">
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20UNUM" class="neon-btn px-8 py-3 rounded-full font-bold">BILETA</a>
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20UNUM" class="whatsapp-btn px-8 py-3 rounded-full font-bold">VIP</a>
         </div>
       </div>
     </div>
 
     <!-- SUNDANCE -->
     <div class="hot-card rounded-2xl overflow-hidden">
-      <img src="sundance.jpg" class="w-full h-48 object-cover">
-      <div class="p-5">
-        <p class="text-cyan-400 font-bold mb-2">TBA | SUNDANCE FESTIVAL | TIRANA</p>
-        <div class="flex gap-3">
-          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20SUNDANCE" class="neon-btn px-6 py-2 rounded-full font-bold">BILETA</a>
-          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20SUNDANCE" class="whatsapp-btn px-6 py-2 rounded-full font-bold">VIP</a>
+      <img src="sundance.jpg" class="w-full h-56 object-cover">
+      <div class="p-6">
+        <p class="text-cyan-400 font-bold mb-3 text-lg">TBA | SUNDANCE FESTIVAL | TIRANA</p>
+        <div class="flex gap-4">
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20SUNDANCE" class="neon-btn px-8 py-3 rounded-full font-bold">BILETA</a>
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20SUNDANCE" class="whatsapp-btn px-8 py-3 rounded-full font-bold">VIP</a>
         </div>
       </div>
     </div>
 
     <!-- YE -->
     <div class="hot-card rounded-2xl overflow-hidden">
-      <img src="ye.jpg" class="w-full h-48 object-cover">
-      <div class="p-5">
-        <p class="text-cyan-400 font-bold mb-2">11 JULY | YE | TIRANA</p>
-        <div class="flex gap-3">
-          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20YE" class="neon-btn px-6 py-2 rounded-full font-bold">BILETA</a>
-          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20YE" class="whatsapp-btn px-6 py-2 rounded-full font-bold">VIP</a>
+      <img src="ye.jpg" class="w-full h-56 object-cover">
+      <div class="p-6">
+        <p class="text-cyan-400 font-bold mb-3 text-lg">11 JULY | YE | TIRANA</p>
+        <div class="flex gap-4">
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20YE" class="neon-btn px-8 py-3 rounded-full font-bold">BILETA</a>
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20YE" class="whatsapp-btn px-8 py-3 rounded-full font-bold">VIP</a>
         </div>
       </div>
     </div>
