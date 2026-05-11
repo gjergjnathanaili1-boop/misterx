@@ -5,36 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mister X Events - Tirana & Albania 2026</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
   <style>
     body {
       background: #000;
       font-family: 'Montserrat', sans-serif;
     }
     .hero-bg {
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 40%, #000814 100%);
+      background: radial-gradient(ellipse at top, #1a0033 0%, #000000 50%, #000814 100%);
       position: relative;
       overflow: hidden;
     }
     .hero-bg::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(34,211,238,0.15) 0%, transparent 50%);
-      animation: pulse 8s ease-in-out infinite;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(34,211,238,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(236,72,153,0.15) 0%, transparent 50%);
+      animation: pulse 6s ease-in-out infinite;
     }
     @keyframes pulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 0.8; }
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
     }
-    .neon-text-cyan {
-      text-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee, 0 0 30px #22d3ee;
+    .neon-text {
+      text-shadow: 0 0 20px #22d3ee, 0 0 40px #22d3ee, 0 0 60px #22d3ee;
     }
     .neon-btn {
-      background: #ec4899;
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+      box-shadow: 0 0 20px #ec4899;
+      transition: all 0.3s;
+    }
+    .neon-btn:hover {
+      box-shadow: 0 0 35px #ec4899;
+      transform: translateY(-2px);
+    }
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      box-shadow: 0 0 20px #22c55e;
+      transition: all 0.3s;
+    }
+    .whatsapp-btn:hover {
+      box-shadow: 0 0 35px #22c55e;
+      transform: translateY(-2px);
+    }
+    .hot-card {
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      transition: all 0.3s;
+    }
+    .hot-card:hover {
+      border: 1px solid #22d3ee;
+      box-shadow: 0 10px 40px rgba(34,211,238,0.3);
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <!-- HEADER ME LOGO TE MADHE -->
+  <header class="text-center py-10 bg-black relative z-20">
+    <img src="logo.png" alt="Mister X Events" class="h-28 mx-auto" style="mix-blend-mode: screen; filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 25px #22d3ee);">
+  </header>
+
+  <!-- HERO PA FOTO, VETEM GRADIENT -->
+  <div class="hero-bg py-20 flex flex-col items-center justify-center text-center px-4 relative z-10">
+    <h1 class="text-6xl md:text-7xl font-black mb-4 neon-text uppercase">Find Your Vibe</h1>
+    <p class="text-xl md:text-2xl text-gray-300 font-bold">Tirana & Albania. All-In-One Place.</p>
+  </div>
+
+  <!-- EVENTS -->
+  <div class="max-w-5xl mx-auto px-4 py-12 space-y-8 pb-24">
+
+    <!-- ZAMNA -->
+    <div class="hot-card rounded-3xl overflow-hidden">
+      <img src="zamna.jpg" class="w-full h-64 object-cover">
+      <div class="p-8">
+        <p class="text-cyan-400 font-black mb-4 text-xl">16 MAY | ZAMNA | TIRANA</p>
+        <div class="flex gap-4 flex-wrap">
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20ZAMNA" class="neon-btn px-10 py-4 rounded-full font-black text-lg">BILETA</a>
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20ZAMNA" class="whatsapp-btn px-10 py-4 rounded-full font-black text-lg">VIP</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLACK COFFEE -->
+    <div class="hot-card rounded-3xl overflow-hidden">
+      <img src="black-coffee.jpg" class="w-full h-64 object-cover" onerror="this.src='https://placehold.co/600x400/000000/22d3ee?text=BLACK+COFFEE'">
+      <div class="p-8">
+        <p class="text-cyan-400 font-black mb-4 text-xl">04 JUNE | BLACK COFFEE | TIRANA</p>
+        <div class="flex gap-4 flex-wrap">
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20BLACK%20COFFEE" class="neon-btn px-10 py-4 rounded-full font-black text-lg">BILETA</a>
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20BLACK%20COFFEE" class="whatsapp-btn px-10 py-4 rounded-full font-black text-lg">VIP</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- UNUM -->
+    <div class="hot-card rounded-3xl overflow-hidden">
+      <img src="unum.jpg" class="w-full h-64 object-cover">
+      <div class="p-8">
+        <p class="text-cyan-400 font-black mb-4 text-xl">4-9 JUNE | UNUM FESTIVAL | SHENGJIN</p>
+        <div class="flex gap-4 flex-wrap">
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20UNUM" class="neon-btn px-10 py-4 rounded-full font-black text-lg">BILETA</a>
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20UNUM" class="whatsapp-btn px-10 py-4 rounded-full font-black text-lg">VIP</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUNDANCE -->
+    <div class="hot-card rounded-3xl overflow-hidden">
+      <img src="sundance.jpg" class="w-full h-64 object-cover">
+      <div class="p-8">
+        <p class="text-cyan-400 font-black mb-4 text-xl">TBA | SUNDANCE FESTIVAL | TIRANA</p>
+        <div class="flex gap-4 flex-wrap">
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20SUNDANCE" class="neon-btn px-10 py-4 rounded-full font-black text-lg">BILETA</a>
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20SUNDANCE" class="whatsapp-btn px-10 py-4 rounded-full font-black text-lg">VIP</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- YE -->
+    <div class="hot-card rounded-3xl overflow-hidden">
+      <img src="ye.jpg" class="w-full h-64 object-cover">
+      <div class="p-8">
+        <p class="text-cyan-400 font-black mb-4 text-xl">11 JULY | YE | TIRANA</p>
+        <div class="flex gap-4 flex-wrap">
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20BILETA%20per%20YE" class="neon-btn px-10 py-4 rounded-full font-black text-lg">BILETA</a>
+          <a href="https://wa.me/355684077241?text=Hi%20Mister%20X,%20dua%20VIP%20per%20YE" class="whatsapp-btn px-10 py-4 rounded-full font-black text-lg">VIP</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>      background: #ec4899;
       box-shadow: 0 0 15px #ec4899, 0 0 25px #ec4899;
       transition: all 0.3s;
     }
