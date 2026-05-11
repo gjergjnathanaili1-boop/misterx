@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mister X Events</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+  
+  * {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: #0a0a0f;
+    color: #fff;
+  }
+  
+  .neon-pink {
+    color: #FF2E88;
+    text-shadow: 0 0 10px #FF2E88, 0 0 20px #FF2E88, 0 0 30px #FF2E88;
+  }
+  
+  .neon-blue {
+    color: #00D4FF;
+    text-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 30px #00D4FF;
+  }
+  
+  .btn-neon-pink {
+    background: linear-gradient(135deg, #FF2E88, #ff0066);
+    box-shadow: 0 0 20px rgba(255, 46, 136, 0.6), 0 4px 15px rgba(255, 46, 136, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-neon-pink:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(255, 46, 136, 0.8), 0 6px 20px rgba(255, 46, 136, 0.6);
+  }
+  
+  .btn-neon-blue {
+    background: linear-gradient(135deg, #00D4FF, #0099cc);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.6), 0 4px 15px rgba(0, 212, 255, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-neon-blue:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.8), 0 6px 20px rgba(0, 212, 255, 0.6);
+  }
+  
+  .card-glow {
+    background: linear-gradient(145deg, #1a1a24, #111118);
+    border: 1px solid rgba(255, 46, 136, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  .card-glow:hover {
+    border-color: rgba(255, 46, 136, 0.5);
+    box-shadow: 0 8px 32px rgba(255, 46, 136, 0.2);
+    transform: translateY(-4px);
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(255, 46, 136, 0.15) 0%, rgba(0, 212, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+  }
+  
+  .input-dark {
+    background: #1a1a24;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  
+  .input-dark:focus {
+    border-color: #FF2E88;
+    box-shadow: 0 0 0 3px rgba(255, 46, 136, 0.1);
+    outline: none;
+  }
+  
+  .modal-backdrop {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+  }
+  
+  .badge-hot {
+    background: linear-gradient(135deg, #FF2E88, #ff0066);
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 46, 136, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 46, 136, 0.8); }
+  }
+  
+  .toast {
+    animation: slideIn 0.3s ease, slideOut 0.3s ease 2.7s;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(400px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(400px); opacity: 0; }
+  }
+  
+  #qrVideo {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+  }
+  
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+</style>
+</head>
+<body class="scroll-smooth">
+  
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-gray-800" style="background: rgba(10, 10, 15, 0.95); backdrop-filter: blur(10px);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="window.showPage('home')">
+          <i class="fa-solid fa-bolt text-2xl neon-pink"></i>
+          <h1 class="text-xl sm:text-2xl font-bold">
+            <span class="neon-pink">MISTER X</span> <span class="neon-blue">EVENTS</span>
+          </h1>
+        </div>
+        <nav class="flex items-center gap-2 sm:gap-4">
+          <button onclick="window.showPage('events')" class="text-sm sm:text-base px-3 py-2 rounded-lg hover:bg-gray-800 transition">
+            <i class="fa-solid fa-calendar-days mr-1"></i> <span class="hidden sm:inline">Events</span>
+          </button>
+          <button onclick="window.showPage('tickets')" class="text-sm sm:text-base px-3 py-2 rounded-lg hover:bg-gray-800 transition">
+            <i class="fa-solid fa-ticket mr-1"></i> <span class="hidden sm:inline">My Tickets</span>
+          </button>
+          <button onclick="window.showPage('admin')" class="text-sm sm:text-base px-3 py-2 rounded-lg hover:bg-gray-800 transition">
+            <i class="fa-solid fa-lock mr-1"></i> <span class="hidden sm:inline">Admin</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    
+    <!-- HOME PAGE -->
+    <div id="page-home" class="page">
+      <!-- Hero Section -->
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-blue-500/10"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="hero-gradient p-8 sm:p-12 rounded-3xl border border-pink-500/30">
+              <div class="inline-block badge-hot text-white text-xs font-bold px-4 py-1 rounded-full mb-4">
+                <i class="fa-solid fa-fire mr-1"></i> HEADLINE EVENT
+              </div>
+              <h2 class="text-4xl sm:text-6xl font-extrabold mb-4">
+                <span class="neon-pink">BLACK</span><br><span class="neon-blue">COFFEE</span>
+              </h2>
+              <p class="text-gray-300 text-lg mb-6">Experience the legend live in Tirana. An unforgettable night of deep house and electronic music.</p>
+              <div class="flex items-center gap-4 text-gray-400 mb-8">
+                <div><i class="fa-solid fa-calendar mr-2 neon-pink"></i> Dec 15, 2024</div>
+                <div><i class="fa-solid fa-location-dot mr-2 neon-blue"></i> Arena Tirana</div>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                <button onclick="window.showPage('events')" class="btn-neon-pink text-white font-bold px-8 py-4 rounded-xl">
+                  <i class="fa-solid fa-calendar-days mr-2"></i> TIRANA EVENTS
+                </button>
+                <button onclick="window.showPage('tickets')" class="btn-neon-blue text-white font-bold px-8 py-4 rounded-xl">
+                  <i class="fa-solid fa-ticket mr-2"></i> MY TICKETS
+                </button>
+              </div>
+            </div>
+            <div class="hidden md:block">
+              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80" alt="Black Coffee" class="rounded-3xl shadow-2xl" style="box-shadow: 0 0 60px rgba(255, 46, 136, 0.3);">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Incoming Hot List -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex items-center justify-between mb-8">
+          <h3 class="text-3xl sm:text-4xl font-bold">
+            <i class="fa-solid fa-fire neon-pink mr-2"></i> Incoming Hot List
+          </h3>
+        </div>
+        <div id="hotListContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </div>
+      </section>
+    </div>
+
+    <!-- EVENTS PAGE -->
+    <div id="page-events" class="page hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-8">
+          <i class="fa-solid fa-calendar-days neon-pink mr-2"></i> All Tirana Events
+        </h2>
+        <div id="eventsListContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </div>
+      </div>
+    </div>
+
+    <!-- EVENT DETAILS PAGE -->
+    <div id="page-event-details" class="page hidden">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <button onclick="window.showPage('events')" class="mb-6 text-gray-400 hover:text-white transition">
+          <i class="fa-solid fa-arrow-left mr-2"></i> Back to Events
+        </button>
+        <div id="eventDetailsContent"></div>
+      </div>
+    </div>
+
+    <!-- TICKETS PAGE -->
+    <div id="page-tickets" class="page hidden">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-8">
+          <i class="fa-solid fa-ticket neon-blue mr-2"></i> My Tickets
+        </h2>
+        <div id="ticketsContainer" class="space-y-6">
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN PAGE -->
+    <div id="page-admin" class="page hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-8">
+          <i class="fa-solid fa-lock neon-pink mr-2"></i> Admin Panel
+        </h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Add Event -->
+          <div class="card-glow p-6 rounded-2xl">
+            <h3 class="text-xl font-bold mb-4 neon-blue">
+              <i class="fa-solid fa-plus-circle mr-2"></i> Add New Event
+            </h3>
+            <form id="addEventForm" onsubmit="window.handleAddEvent(event)">
+              <div class="space-y-4">
+                <input type="text" id="eventName" placeholder="Event Name" class="input-dark w-full px-4 py-3 rounded-lg" required>
+                <input type="text" id="eventArtist" placeholder="Artist/DJ Name" class="input-dark w-full px-4 py-3 rounded-lg" required>
+                <input type="date" id="eventDate" class="input-dark w-full px-4 py-3 rounded-lg" required>
+                <input type="text" id="eventVenue" placeholder="Venue" class="input-dark w-full px-4 py-3 rounded-lg" required>
+                <input type="number" id="eventPrice" placeholder="Base Price (ALL)" class="input-dark w-full px-4 py-3 rounded-lg" required>
+                <input type="url" id="eventImage" placeholder="Image URL" class="input-dark w-full px-4 py-3 rounded-lg" required>
+                <textarea id="eventDesc" placeholder="Description" class="input-dark w-full px-4 py-3 rounded-lg" rows="3" required></textarea>
+                <button type="submit" class="btn-neon-pink w-full text-white font-bold py-3 rounded-lg">
+                  <i class="fa-solid fa-plus mr-2"></i> Add Event
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- QR Scanner -->
+          <div class="card-glow p-6 rounded-2xl">
+            <h3 class="text-xl font-bold mb-4 neon-pink">
+              <i class="fa-solid fa-qrcode mr-2"></i> Ticket Scanner
+            </h3>
+            <div class="text-center">
+              <video id="qrVideo" class="mx-auto mb-4 bg-gray-900" style="display: none;"></video>
+              <canvas id="qrCanvas" style="display: none;"></canvas>
+              <div id="scanResult" class="mb-4 text-lg font-bold"></div>
+              <button onclick="window.startScanner()" class="btn-neon-blue text-white font-bold px-6 py-3 rounded-lg mr-2">
+                <i class="fa-solid fa-camera mr-2"></i> Start Scan
+              </button>
+              <button onclick="window.stopScanner()" class="bg-gray-700 text-white font-bold px-6 py-3 rounded-lg">
+                <i class="fa-solid fa-stop mr-2"></i> Stop
+              </button>
+            </div>
+          </div>
+
+          <!-- Sales -->
+          <div class="card-glow p-6 rounded-2xl">
+            <h3 class="text-xl font-bold mb-4 neon-blue">
+              <i class="fa-solid fa-chart-line mr-2"></i> Sales Overview
+            </h3>
+            <div id="salesStats" class="space-y-3">
+            </div>
+          </div>
+
+          <!-- Export -->
+          <div class="card-glow p-6 rounded-2xl">
+            <h3 class="text-xl font-bold mb-4 neon-pink">
+              <i class="fa-solid fa-file-export mr-2"></i> Export Data
+            </h3>
+            <p class="text-gray-400 mb-4">Download all tickets and orders as CSV</p>
+            <button onclick="window.exportCSV()" class="btn-neon-blue w-full text-white font-bold py-3 rounded-lg">
+              <i class="fa-solid fa-download mr-2"></i> Export CSV
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Order Modal -->
+  <div id="orderModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+    <div class="card-glow max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 rounded-2xl">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold neon-pink">Confirm Order</h3>
+        <button onclick="window.closeOrderModal()" class="text-gray-400 hover:text-white text-2xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="orderModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="fixed top-20 right-4 z-50 space-y-2"></div>
+
+  <script>
+  // Database
+  var DB = {
+    events: [],
+    tickets: [],
+    scannerStream: null
+  };
+
+  // Init default events
+  function initDefaultEvents() {
+    var existing = localStorage.getItem('mx_events');
+    if (!existing) {
+      var defaults = [
+        {
+          id: 'evt_1',
+          name: 'Black Coffee Live',
+          artist: 'Black Coffee',
+          date: '2024-12-15',
+          venue: 'Arena Tirana',
+          price: 5000,
+          image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80',
+          description: 'The godfather of Afro house returns to Tirana for an exclusive night. Expect deep, soulful rhythms and unforgettable vibes.',
+          hot: true,
+          menu: [
+            { name: 'Vodka Red Bull', price: 800 },
+            { name: 'Gin Tonic', price: 700 },
+            { name: 'Beer', price: 400 },
+            { name: 'Water', price: 200 }
+          ]
+        },
+        {
+          id: 'evt_2',
+          name: 'Techno Night',
+          artist: 'Charlotte de Witte',
+          date: '2024-12-22',
+          venue: 'Club X',
+          price: 3500,
+          image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80',
+          description: 'Hard techno beats all night long. Underground experience in the heart of Tirana.',
+          hot: true,
+          menu: [
+            { name: 'Jager Bomb', price: 900 },
+            { name: 'Tequila Shot', price: 600 },
+            { name: 'Beer', price: 400 },
+            { name: 'Energy Drink', price: 500 }
+          ]
+        },
+        {
+          id: 'evt_3',
+          name: 'Summer Vibes',
+          artist: 'Lost Frequencies',
+          date: '2025-01-10',
+          venue: 'Folie Marine',
+          price: 4500,
+          image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80',
+          description: 'Melodic house and tropical sounds to kick off the new year. Beach club vibes in winter.',
+          hot: true,
+          menu: [
+            { name: 'Mojito', price: 800 },
+            { name: 'Aperol Spritz', price: 700 },
+            { name: 'Prosecco', price: 600 },
+            { name: 'Water', price: 200 }
+          ]
+        }
+      ];
+      localStorage.setItem('mx_events', JSON.stringify(defaults));
+    }
+    DB.events = JSON.parse(localStorage.getItem('mx_events') || '[]');
+    
+    var ticketsData = localStorage.getItem('mx_tickets');
+    if (ticketsData) {
+      DB.tickets = JSON.parse(ticketsData);
+    }
+  }
+
+  // Save to localStorage
+  function saveEvents() {
+    localStorage.setItem('mx_events', JSON.stringify(DB.events));
+  }
+
+  function saveTickets() {
+    localStorage.setItem('mx_tickets', JSON.stringify(DB.tickets));
+  }
+
+  // Show page
+  window.showPage = function(page) {
+    var pages = document.querySelectorAll('.page');
+    for (var i = 0; i < pages.length; i++) {
+      pages[i].classList.add('hidden');
+    }
+    var targetPage = document.getElementById('page-' + page);
+    if (targetPage) {
+      targetPage.classList.remove('hidden');
+      window.scrollTo(0, 0);
+    }
+    
+    if (page === 'home' || page === 'events') {
+      renderEvents();
+    } else if (page === 'tickets') {
+      renderTickets();
+    } else if (page === 'admin') {
+      renderAdmin();
+    }
+  };
+
+  // Render events
+  function renderEvents() {
+    var hotList = document.getElementById('hotListContainer');
+    var eventsList = document.getElementById('eventsListContainer');
+    
+    if (hotList) hotList.innerHTML = '';
+    if (eventsList) eventsList.innerHTML = '';
+    
+    for (var i = 0; i < DB.events.length; i++) {
+      var event = DB.events[i];
+      var card = createEventCard(event);
+      if (hotList && event.hot) {
+        hotList.innerHTML += card;
+      }
+      if (eventsList) {
+        eventsList.innerHTML += card;
+      }
+    }
+  }
+
+  function createEventCard(event) {
+    var dateStr = new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    return '<div class="card-glow rounded-2xl overflow-hidden cursor-pointer" onclick="window.viewEventDetails(\'' + event.id + '\')">' +
+      '<img src="' + event.image + '" alt="' + event.name + '" class="w-full h-48 object-cover">' +
+      '<div class="p-6">' +
+        (event.hot ? '<div class="inline-block badge-hot text-white text-xs font-bold px-3 py-1 rounded-full mb-3"><i class="fa-solid fa-fire mr-1"></i> HOT</div>' : '') +
+        '<h4 class="text-xl font-bold mb-2">' + event.name + '</h4>' +
+        '<p class="text-gray-400 text-sm mb-3"><i class="fa-solid fa-microphone mr-1 neon-pink"></i> ' + event.artist + '</p>' +
+        '<div class="flex items-center gap-4 text-sm text-gray-400 mb-4">' +
+          '<div><i class="fa-solid fa-calendar mr-1"></i> ' + dateStr + '</div>' +
+          '<div><i class="fa-solid fa-location-dot mr-1"></i> ' + event.venue + '</div>' +
+        '</div>' +
+        '<div class="flex items-center justify-between">' +
+          '<div class="text-2xl font-bold neon-blue">' + event.price + ' ALL</div>' +
+          '<button class="btn-neon-pink text-white px-4 py-2 rounded-lg text-sm font-bold">' +
+            'Get Tickets <i class="fa-solid fa-arrow-right ml-1"></i>' +
+          '</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  // View event details
+  window.viewEventDetails = function(eventId) {
+    var event = null;
+    for (var i = 0; i < DB.events.length; i++) {
+      if (DB.events[i].id === eventId) {
+        event = DB.events[i];
+        break;
+      }
+    }
+    if (!event) return;
+    
+    window.showPage('event-details');
+    var dateStr = new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    
+    var menuHTML = '';
+    for (var j = 0; j < event.menu.length; j++) {
+      var item = event.menu[j];
+      menuHTML += '<div class="flex items-center justify-between p-4 bg-gray-800/50 rounded-lg">' +
+        '<div>' +
+          '<div class="font-semibold">' + item.name + '</div>' +
+          '<div class="text-sm text-gray-400">' + item.price + ' ALL</div>' +
+        '</div>' +
+        '<div class="flex items-center gap-3">' +
+          '<button onclick="window.updateMenuQty(\'' + eventId + '\', ' + j + ', -1)" class="w-8 h-8 rounded-lg bg-gray-700 hover:bg-gray-600"><i class="fa-solid fa-minus text-sm"></i></button>' +
+          '<span id="qty-' + eventId + '-' + j + '" class="w-8 text-center font-bold">0</span>' +
+          '<button onclick="window.updateMenuQty(\'' + eventId + '\', ' + j + ', 1)" class="w-8 h-8 rounded-lg btn-neon-pink text-white"><i class="fa-solid fa-plus text-sm"></i></button>' +
+        '</div>' +
+      '</div>';
+    }
+    
+    var content = '<div class="card-glow rounded-2xl overflow-hidden">' +
+      '<img src="' + event.image + '" alt="' + event.name + '" class="w-full h-64 sm:h-96 object-cover">' +
+      '<div class="p-6 sm:p-8">' +
+        '<div class="flex flex-wrap items-start justify-between gap-4 mb-6">' +
+          '<div>' +
+            '<h1 class="text-3xl sm:text-4xl font-extrabold mb-2">' + event.name + '</h1>' +
+            '<p class="text-xl text-gray-400"><i class="fa-solid fa-microphone neon-pink mr-2"></i>' + event.artist + '</p>' +
+          '</div>' +
+          '<div class="text-right">' +
+            '<div class="text-sm text-gray-400">Starting from</div>' +
+            '<div class="text-3xl font-bold neon-blue">' + event.price + ' ALL</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="flex flex-wrap gap-6 mb-6 text-gray-300">' +
+          '<div><i class="fa-solid fa-calendar neon-pink mr-2"></i>' + dateStr + '</div>' +
+          '<div><i class="fa-solid fa-location-dot neon-blue mr-2"></i>' + event.venue + '</div>' +
+        '</div>' +
+        '<p class="text-gray-300 mb-8">' + event.description + '</p>' +
+        '<div class="border-t border-gray-700 pt-6">' +
+          '<h3 class="text-xl font-bold mb-4 neon-blue"><i class="fa-solid fa-martini-glass-citrus mr-2"></i> Add Drinks to Your Order</h3>' +
+          '<div class="space-y-3 mb-6" id="menu-' + eventId + '">' + menuHTML + '</div>' +
+          '<div class="bg-gray-800/50 p-6 rounded-xl mb-6">' +
+            '<div class="flex items-center justify-between text-lg mb-2">' +
+              '<span>Ticket Price:</span>' +
+              '<span class="font-bold" id="ticket-price-' + eventId + '">' + event.price + ' ALL</span>' +
+            '</div>' +
+            '<div class="flex items-center justify-between text-lg mb-4">' +
+              '<span>Drinks Total:</span>' +
+              '<span class="font-bold" id="drinks-total-' + eventId + '">0 ALL</span>' +
+            '</div>' +
+            '<div class="border-t border-gray-600 pt-4 flex items-center justify-between text-2xl">' +
+              '<span class="font-bold">Total:</span>' +
+              '<span class="font-bold neon-pink" id="grand-total-' + eventId + '">' + event.price + ' ALL</span>' +
+            '</div>' +
+          '</div>' +
+          '<button onclick="window.confirmOrder(\'' + eventId + '\')" class="btn-neon-pink w-full text-white font-bold py-4 rounded-xl text-lg">' +
+            '<i class="fa-solid fa-shopping-cart mr-2"></i> Confirm Order & Get Ticket' +
+          '</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+    
+    document.getElementById('eventDetailsContent').innerHTML = content;
+  };
+
+  // Menu quantity tracking
+  var menuSelections = {};
+
+  window.updateMenuQty = function(eventId, itemIndex, delta) {
+    if (!menuSelections[eventId]) {
+      menuSelections[eventId] = {};
+    }
+    if (!menuSelections[eventId][itemIndex]) {
+      menuSelections[eventId][itemIndex] = 0;
+    }
+    
+    menuSelections[eventId][itemIndex] += delta;
+    if (menuSelections[eventId][itemIndex] < 0) {
+      menuSelections[eventId][itemIndex] = 0;
+    }
+    
+    document.getElementById('qty-' + eventId + '-' + itemIndex).textContent = menuSelections[eventId][itemIndex];
+    updateTotal(eventId);
+  };
+
+  function updateTotal(eventId) {
+    var event = null;
+    for (var i = 0; i < DB.events.length; i++) {
+      if (DB.events[i].id === eventId) {
+        event = DB.events[i];
+        break;
+      }
+    }
+    if (!event) return;
+    
+    var drinksTotal = 0;
+    if (menuSelections[eventId]) {
+      for (var idx in menuSelections[eventId]) {
+        var qty = menuSelections[eventId][idx];
+        var price = event.menu[parseInt(idx)].price;
+        drinksTotal += qty * price;
+      }
+    }
+    
+    var grandTotal = event.price + drinksTotal;
+    document.getElementById('drinks-total-' + eventId).textContent = drinksTotal + ' ALL';
+    document.getElementById('grand-total-' + eventId).textContent = grandTotal + ' ALL';
+  }
+
+  // Confirm order
+  window.confirmOrder = function(eventId) {
+    var event = null;
+    for (var i = 0; i < DB.events.length; i++) {
+      if (DB.events[i].id === eventId) {
+        event = DB.events[i];
+        break;
+      }
+    }
+    if (!event) return;
+    
+    var drinks = [];
+    var drinksTotal = 0;
+    if (menuSelections[eventId]) {
+      for (var idx in menuSelections[eventId]) {
+        var qty = menuSelections[eventId][idx];
+        if (qty > 0) {
+          var item = event.menu[parseInt(idx)];
+          drinks.push({ name: item.name, price: item.price, qty: qty });
+          drinksTotal += qty * item.price;
+        }
+      }
+    }
+    
+    var total = event.price + drinksTotal;
+    var ticketId = 'TKT_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    var ticket = {
+      id: ticketId,
+      eventId: eventId,
+      eventName: event.name,
+      artist: event.artist,
+      date: event.date,
+      venue: event.venue,
+      ticketPrice: event.price,
+      drinks: drinks,
+      drinksTotal: drinksTotal,
+      total: total,
+      purchaseDate: new Date().toISOString(),
+      used: false
+    };
+    
+    DB.tickets.push(ticket);
+    saveTickets();
+    
+    // Show order modal with QR
+    var modalContent = '<div class="text-center">' +
+      '<div class="mb-6">' +
+        '<i class="fa-solid fa-circle-check text-6xl neon-pink mb-4"></i>' +
+        '<h4 class="text-2xl font-bold mb-2">Order Confirmed!</h4>' +
+        '<p class="text-gray-400">Your ticket has been generated</p>' +
+      '</div>' +
+      '<div class="bg-white p-6 rounded-xl mb-6 inline-block">' +
+        '<div id="qrcode"></div>' +
+      '</div>' +
+      '<div class="text-left bg-gray-800/50 p-6 rounded-xl mb-6">' +
+        '<h5 class="font-bold mb-3 neon-blue">Order Summary</h5>' +
+        '<div class="space-y-2 text-sm">' +
+          '<div class="flex justify-between"><span>Event:</span><span class="font-bold">' + event.name + '</span></div>' +
+          '<div class="flex justify-between"><span>Date:</span><span>' + event.date + '</span></div>' +
+          '<div class="flex justify-between"><span>Venue:</span><span>' + event.venue + '</span></div>' +
+          '<div class="border-t border-gray-600 pt-2 mt-2">' +
+            '<div class="flex justify-between"><span>Ticket:</span><span>' + event.price + ' ALL</span></div>' +
+            (drinks.length > 0 ? '<div class="mt-2"><div class="text-gray-400 mb-1">Drinks:</div>' + 
+              drinks.map(function(d) { return '<div class="flex justify-between pl-4"><span>' + d.qty + 'x ' + d.name + '</span><span>' + (d.price * d.qty) + ' ALL</span></div>'; }).join('') + '</div>' : '') +
+          '</div>' +
+          '<div class="border-t border-gray-600 pt-2 mt-2 flex justify-between text-lg font-bold">' +
+            '<span>Total:</span><span class="neon-pink">' + total + ' ALL</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<button onclick="window.closeOrderModal(); window.showPage(\'tickets\')" class="btn-neon-blue w-full text-white font-bold py-3 rounded-lg">' +
+        '<i class="fa-solid fa-ticket mr-2"></i> View My Tickets' +
+      '</button>' +
+    '</div>';
+    
+    document.getElementById('orderModalContent').innerHTML = modalContent;
+    document.getElementById('orderModal').classList.remove('hidden');
+    
+    // Generate QR
+    setTimeout(function() {
+      var qrData = JSON.stringify({ ticketId: ticketId, eventId: eventId });
+      new QRCode(document.getElementById('qrcode'), {
+        text: qrData,
+        width: 200,
+        height: 200,
+        colorDark: '#000000',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }, 100);
+    
+    menuSelections[eventId] = {};
+    showToast('Order confirmed! Ticket added to your collection', 'success');
+  };
+
+  window.closeOrderModal = function() {
+    document.getElementById('orderModal').classList.add('hidden');
+  };
+
+  // Render tickets
+  function renderTickets() {
+    var container = document.getElementById('ticketsContainer');
+    if (DB.tickets.length === 0) {
+      container.innerHTML = '<div class="text-center py-16">' +
+        '<i class="fa-solid fa-ticket text-6xl text-gray-600 mb-4"></i>' +
+        '<h3 class="text-2xl font-bold text-gray-400 mb-2">No Tickets Yet</h3>' +
+        '<p class="text-gray-500 mb-6">Purchase your first ticket to see it here</p>' +
+        '<button onclick="window.showPage(\'events\')" class="btn-neon-pink text-white font-bold px-6 py-3 rounded-lg">' +
+          'Browse Events' +
+        '</button>' +
+      '</div>';
+      return;
+    }
+    
+    var html = '';
+    for (var i = DB.tickets.length - 1; i >= 0; i--) {
+      var ticket = DB.tickets[i];
+      var event = null;
+      for (var j = 0; j < DB.events.length; j++) {
+        if (DB.events[j].id === ticket.eventId) {
+          event = DB.events[j];
+          break;
+        }
+      }
+      if (!event) continue;
+      
+      var dateStr = new Date(ticket.date).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+      var statusBadge = ticket.used ? 
+        '<span class="bg-gray-600 text-white text-xs font-bold px-3 py-1 rounded-full">USED</span>' :
+        '<span class="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">VALID</span>';
+      
+      html += '<div class="card-glow rounded-2xl overflow-hidden">' +
+        '<div class="md:flex">' +
+          '<img src="' + event.image + '" alt="' + ticket.eventName + '" class="w-full md:w-48 h-48 md:h-auto object-cover">' +
+          '<div class="p-6 flex-1">' +
+            '<div class="flex items-start justify-between mb-4">' +
+              '<div>' +
+                '<h4 class="text-2xl font-bold mb-1">' + ticket.eventName + '</h4>' +
+                '<p class="text-gray-400"><i class="fa-solid fa-microphone neon-pink mr-1"></i>' + ticket.artist + '</p>' +
+              '</div>' +
+              statusBadge +
+            '</div>' +
+            '<div class="grid grid-cols-2 gap-4 mb-4 text-sm">' +
+              '<div><i class="fa-solid fa-calendar text-gray-400 mr-2"></i>' + dateStr + '</div>' +
+              '<div><i class="fa-solid fa-location-dot text-gray-400 mr-2"></i>' + ticket.venue + '</div>' +
+              '<div><i class="fa-solid fa-ticket text-gray-400 mr-2"></i>ID: ' + ticket.id.substr(0, 12) + '...</div>' +
+              '<div><i class="fa-solid fa-coins neon-blue mr-2"></i>' + ticket.total + ' ALL</div>' +
+            '</div>' +
+            '<button onclick="window.showTicketQR(\'' + ticket.id + '\')" class="btn-neon-blue text-white font-bold px-6 py-2 rounded-lg text-sm">' +
+              '<i class="fa-solid fa-qrcode mr-2"></i> Show QR Code' +
+            '</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+    container.innerHTML = html;
+  }
+
+  window.showTicketQR = function(ticketId) {
+    var ticket = null;
+    for (var i = 0; i < DB.tickets.length; i++) {
+      if (DB.tickets[i].id === ticketId) {
+        ticket = DB.tickets[i];
+        break;
+      }
+    }
+    if (!ticket) return;
+    
+    var event = null;
+    for (var j = 0; j < DB.events.length; j++) {
+      if (DB.events[j].id === ticket.eventId) {
+        event = DB.events[j];
+        break;
+      }
+    }
+    
+    var modalContent = '<div class="text-center">' +
+      '<h4 class="text-2xl font-bold mb-2">' + ticket.eventName + '</h4>' +
+      '<p class="text-gray-400 mb-6">' + ticket.date + ' • ' + ticket.venue + '</p>' +
+      '<div class="bg-white p-6 rounded-xl mb-6 inline-block">' +
+        '<div id="qrcode-popup"></div>' +
+      '</div>' +
+      '<div class="text-sm text-gray-400 mb-4">Ticket ID: ' + ticket.id + '</div>' +
+      (ticket.used ? '<div class="bg-gray-700 text-white py-2 px-4 rounded-lg inline-block mb-4"><i class="fa-solid fa-ban mr-2"></i>This ticket has been used</div>' : 
+        '<div class="bg-green-600 text-white py-2 px-4 rounded-lg inline-block mb-4"><i class="fa-solid fa-check mr-2"></i>Valid for entry</div>') +
+      '<br><button onclick="window.closeOrderModal()" class="bg-gray-700 text-white font-bold px-6 py-3 rounded-lg">' +
+        'Close' +
+      '</button>' +
+    '</div>';
+    
+    document.getElementById('orderModalContent').innerHTML = modalContent;
+    document.getElementById('orderModal').classList.remove('hidden');
+    
+    setTimeout(function() {
+      var qrData = JSON.stringify({ ticketId: ticketId, eventId: ticket.eventId });
+      new QRCode(document.getElementById('qrcode-popup'), {
+        text: qrData,
+        width: 250,
+        height: 250,
+        colorDark: '#000000',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }, 100);
+  };
+
+  // Admin functions
+  window.handleAddEvent = function(e) {
+    e.preventDefault();
+    var name = document.getElementById('eventName').value;
+    var artist = document.getElementById('eventArtist').value;
+    var date = document.getElementById('eventDate').value;
+    var venue = document.getElementById('eventVenue').value;
+    var price = parseInt(document.getElementById('eventPrice').value);
+    var image = document.getElementById('eventImage').value;
+    var desc = document.getElementById('eventDesc').value;
+    
+    var newEvent = {
+      id: 'evt_' + Date.now(),
+      name: name,
+      artist: artist,
+      date: date,
+      venue: venue,
+      price: price,
+      image: image,
+      description: desc,
+      hot: false,
+      menu: [
+        { name: 'Vodka Red Bull', price: 800 },
+        { name: 'Beer', price: 400 },
+        { name: 'Water', price: 200 }
+      ]
+    };
+    
+    DB.events.push(newEvent);
+    saveEvents();
+    document.getElementById('addEventForm').reset();
+    showToast('Event added successfully!', 'success');
+    renderEvents();
+    renderAdmin();
+  };
+
+  function renderAdmin() {
+    // Sales stats
+    var totalRevenue = 0;
+    var totalTickets = DB.tickets.length;
+    var usedTickets = 0;
+    
+    for (var i = 0; i < DB.tickets.length; i++) {
+      totalRevenue += DB.tickets[i].total;
+      if (DB.tickets[i].used) usedTickets++;
+    }
+    
+    var statsHTML = '<div class="grid grid-cols-2 gap-4">' +
+      '<div class="bg-gray-800/50 p-4 rounded-lg">' +
+        '<div class="text-gray-400 text-sm mb-1">Total Revenue</div>' +
+        '<div class="text-2xl font-bold neon-pink">' + totalRevenue + ' ALL</div>' +
+      '</div>' +
+      '<div class="bg-gray-800/50 p-4 rounded-lg">' +
+        '<div class="text-gray-400 text-sm mb-1">Total Tickets</div>' +
+        '<div class="text-2xl font-bold neon-blue">' + totalTickets + '</div>' +
+      '</div>' +
+      '<div class="bg-gray-800/50 p-4 rounded-lg">' +
+        '<div class="text-gray-400 text-sm mb-1">Checked In</div>' +
+        '<div class="text-2xl font-bold text-green-500">' + usedTickets + '</div>' +
+      '</div>' +
+      '<div class="bg-gray-800/50 p-4 rounded-lg">' +
+        '<div class="text-gray-400 text-sm mb-1">Pending</div>' +
+        '<div class="text-2xl font-bold text-yellow-500">' + (totalTickets - usedTickets) + '</div>' +
+      '</div>' +
+    '</div>';
+    
+    var statsEl = document.getElementById('salesStats');
+    if (statsEl) statsEl.innerHTML = statsHTML;
+  }
+
+  // QR Scanner
+  window.startScanner = function() {
+    var video = document.getElementById('qrVideo');
+    var canvas = document.getElementById('qrCanvas');
+    var resultDiv = document.getElementById('scanResult');
+    
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+      .then(function(stream) {
+        DB.scannerStream = stream;
+        video.srcObject = stream;
+        video.style.display = 'block';
+        video.play();
+        
+        resultDiv.innerHTML = '<span class="text-yellow-500"><i class="fa-solid fa-spinner fa-spin mr-2"></i>Scanning...</span>';
+        
+        function scan() {
+          if (video.readyState === video.HAVE_ENOUGH_DATA) {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            var code = jsQR(imageData.data, imageData.width, imageData.height);
+            
+            if (code) {
+              try {
+                var data = JSON.parse(code.data);
+                var ticket = null;
+                for (var i = 0; i < DB.tickets.length; i++) {
+                  if (DB.tickets[i].id === data.ticketId) {
+                    ticket = DB.tickets[i];
+                    break;
+                  }
+                }
+                
+                if (ticket) {
+                  if (ticket.used) {
+                    resultDiv.innerHTML = '<span class="text-red-500"><i class="fa-solid fa-ban mr-2"></i>Ticket Already Used!</span>';
+                    showToast('This ticket has already been used', 'error');
+                  } else {
+                    ticket.used = true;
+                    saveTickets();
+                    resultDiv.innerHTML = '<span class="text-green-500"><i class="fa-solid fa-check-circle mr-2"></i>Valid! Entry Approved</span>';
+                    showToast('Ticket validated successfully!', 'success');
+                  }
+                } else {
+                  resultDiv.innerHTML = '<span class="text-red-500"><i class="fa-solid fa-times-circle mr-2"></i>Invalid Ticket</span>';
+                  showToast('Invalid ticket code', 'error');
+                }
+                
+                window.stopScanner();
+              } catch (e) {
+                resultDiv.innerHTML = '<span class="text-red-500"><i class="fa-solid fa-exclamation-triangle mr-2"></i>Invalid QR Code</span>';
+              }
+              return;
+            }
+          }
+          if (DB.scannerStream) {
+            requestAnimationFrame(scan);
+          }
+        }
+        requestAnimationFrame(scan);
+      })
+      .catch(function(err) {
+        resultDiv.innerHTML = '<span class="text-red-500"><i class="fa-solid fa-camera-slash mr-2"></i>Camera access denied</span>';
+        showToast('Could not access camera', 'error');
+      });
+  };
+
+  window.stopScanner = function() {
+    if (DB.scannerStream) {
+      var tracks = DB.scannerStream.getTracks();
+      for (var i = 0; i < tracks.length; i++) {
+        tracks[i].stop();
+      }
+      DB.scannerStream = null;
+    }
+    var video = document.getElementById('qrVideo');
+    if (video) {
+      video.style.display = 'none';
+      video.srcObject = null;
+    }
+    var resultDiv = document.getElementById('scanResult');
+    if (resultDiv && resultDiv.innerHTML.indexOf('Scanning') !== -1) {
+      resultDiv.innerHTML = '';
+    }
+  };
+
+  // Export CSV
+  window.exportCSV = function() {
+    var csv = 'Ticket ID,Event,Artist,Date,Venue,Ticket Price,Drinks Total,Total,Purchase Date,Status\n';
+    
+    for (var i = 0; i < DB.tickets.length; i++) {
+      var t = DB.tickets[i];
+      csv += '"' + t.id + '",';
+      csv += '"' + t.eventName + '",';
+      csv += '"' + t.artist + '",';
+      csv += '"' + t.date + '",';
+      csv += '"' + t.venue + '",';
+      csv += t.ticketPrice + ',';
+      csv += t.drinksTotal + ',';
+      csv += t.total + ',';
+      csv += '"' + t.purchaseDate + '",';
+      csv += '"' + (t.used ? 'Used' : 'Valid') + '"\n';
+    }
+    
+    var blob = new Blob([csv], { type: 'text/csv' });
+    var url = window.URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'mister_x_tickets_' + Date.now() + '.csv';
+    a.click();
+    window.URL.revokeObjectURL(url);
+    showToast('CSV exported successfully!', 'success');
+  };
+
+  // Toast notifications
+  function showToast(message, type) {
+    var container = document.getElementById('toastContainer');
+    var bgColor = type === 'success' ? 'bg-green-600' : type === 'error' ? 'bg-red-600' : 'bg-blue-600';
+    var icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-times-circle' : 'fa-info-circle';
+    
+    var toast = document.createElement('div');
+    toast.className = 'toast ' + bgColor + ' text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3';
+    toast.innerHTML = '<i class="fa-solid ' + icon + '"></i><span>' + message + '</span>';
+    
+    container.appendChild(toast);
+    setTimeout(function() {
+      toast.remove();
+    }, 3000);
+  }
+
+  // Initialize app
+  function init() {
+    initDefaultEvents();
+    renderEvents();
+    window.showPage('home');
+  }
+
+  // Start app when DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  </script>
+
+</body>
+</html>
