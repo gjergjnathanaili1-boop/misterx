@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MisterXevents.al - Bileta VIP Tirana</title>
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Mister X Events - Bileta VIP & Regular për eventet më të mëdha në Tiranë. Zamna, Black Coffee, Sudance, YE, Unum.">
+  <meta name="description" content="Mister X Events - Platformë e pavarur për bileta VIP & Regular për eventet më të mëdha në Tiranë. Zamna, Black Coffee, Sudance, YE, Unum.">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="logo.png">
   <style>
@@ -16,38 +16,37 @@
     .hero-img { width: 100%; max-height: 200px; object-fit: cover; margin-bottom: 15px; border-radius: 10px; border: 2px solid #00f5ff; }
     .header h1 { font-size: 28px; color: #00f5ff; text-shadow: 0 0 10px #00f5ff; letter-spacing: 2px; }
     .header p { color: #aaa; margin-top: 5px; font-size: 14px; }
+    .disclaimer { background: #1a0000; border: 2px solid #ff0000; border-radius: 10px; padding: 12px; margin: 15px 20px; text-align: center; }
+    .disclaimer p { color: #ff6666; font-size: 13px; font-weight: bold; }
     .social { display: flex; justify-content: center; gap: 10px; margin: 20px; flex-wrap: wrap; }
     .social a { padding: 12px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; }
     .tiktok { background: linear-gradient(45deg, #ff0050, #00f2ea); color: #fff; }
     .insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
     .section-title { text-align: center; font-size: 22px; color: #00f5ff; margin: 30px 0 15px; }
-    .map-box { margin: 0 20px 30px; }
-    .map-box iframe { width: 100%; height: 280px; border: 2px solid #00f5ff; border-radius: 10px; }
     .event-card { margin: 20px; border: 2px solid #00f5ff; border-radius: 15px; overflow: hidden; background: #0a0a0a; box-shadow: 0 0 20px rgba(0,245,255,0.3); }
     .event-card img { width: 100%; height: 280px; object-fit: cover; display: block; }
     .event-info { padding: 15px; }
     .event-title { font-size: 20px; color: #00f5ff; margin-bottom: 8px; }
     .hot { background: red; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px; }
+    .event-bio { color: #aaa; font-size: 12px; margin: 8px 0; line-height: 1.5; font-style: italic; }
     .event-info p { color: #ccc; font-size: 13px; margin-bottom: 12px; line-height: 1.4; }
     .btn { display: block; width: 100%; padding: 14px; margin: 8px 0; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; text-align: center; text-decoration: none; cursor: pointer; }
     .btn-blue { background: #00a8ff; color: #fff; }
     .btn-pink { background: #ff0080; color: #fff; }
     .btn-green { background: #00ff88; color: #000; }
+    .btn-official { background: #444; color: #00f5ff; border: 1px solid #00f5ff; font-size: 14px; padding: 10px; }
+    .map-box { margin: 30px 20px; }
+    .map-box iframe { width: 100%; height: 350px; border: 2px solid #00f5ff; border-radius: 10px; }
     #musicBtn { position: fixed; top: 15px; right: 15px; width: 55px; height: 55px; border-radius: 50%; background: #000; border: 3px solid #00f5ff; font-size: 28px; z-index: 999; cursor: pointer; box-shadow: 0 0 15px #00f5ff; }
-    
-    /* GALERIA */
     .gallery { margin: 40px 20px; }
     .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .gallery-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; border: 2px solid #00f5ff; }
-    
-    /* IKONAT/PËRFITIMET */
     .features { margin: 40px 20px; }
     .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
     .feature-box { background: #0a0a0a; border: 2px solid #00f5ff; border-radius: 15px; padding: 20px; text-align: center; }
     .feature-box .icon { font-size: 40px; margin-bottom: 10px; }
     .feature-box h4 { color: #00f5ff; font-size: 16px; margin-bottom: 8px; }
     .feature-box p { color: #aaa; font-size: 12px; }
-    
     .footer { margin-top: 50px; padding: 30px 20px; border-top: 2px solid #00f5ff; background: #0a0a0a; }
     .footer h3 { color: #00f5ff; font-size: 18px; margin-bottom: 15px; text-align: center; }
     .footer p { color: #aaa; font-size: 13px; line-height: 1.6; margin-bottom: 15px; text-align: justify; }
@@ -67,7 +66,12 @@
     <img src="logo.png" alt="Mister X Events Logo" class="header-logo">
     <img src="hero.jpg" alt="Mister X Events" class="hero-img">
     <h1>MISTER X EVENTS</h1>
-    <p>Bileta VIP & Regular për Eventet më të Mëdha në Tiranë</p>
+    <p>Platformë e Pavarur për Bileta VIP & Regular - Tiranë</p>
+  </div>
+
+  <!-- DISCLAIMER I RI -->
+  <div class="disclaimer">
+    <p>⚠️ VËMENDJE: Mister X Events NUK është shitës zyrtar. Ne jemi platformë e pavarur që ndihmojmë me rezervime dhe shërbim VIP via WhatsApp.</p>
   </div>
 
   <div class="social">
@@ -75,18 +79,17 @@
     <a href="https://www.instagram.com/xhorxho?igsh=MXBqd2hpdWJyM2pkbQ==" class="insta" target="_blank">@xhorxho</a>
   </div>
 
-  <h2 class="section-title">EVENT LOCATIONS</h2>
-  <div class="map-box">
-    <iframe src="https://maps.google.com/maps?q=Tirana&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
-  </div>
+  <h2 class="section-title">EVENTET E SEZONIT 2026</h2>
 
   <!-- 1. ZAMNA -->
   <div class="event-card">
     <img src="zamna.jpg" alt="Zamna Tirana">
     <div class="event-info">
       <div class="event-title">16 MAY | ZAMNA | TIRANA <span class="hot">HOT</span><span class="hot">FEW LEFT</span></div>
+      <p class="event-bio">Zamna është një nga festivalet më të mëdha të muzikës elektronike në botë, me origjinë nga Tulum, Meksikë. Për herë të parë në Tiranë me një line-up legjendar.</p>
       <p>ARTBAT • MISS MONIQUE • ØOSTIL • ARGIA • ERTI LUTAJ • TATU</p>
       <a href="https://linktr.ee/MISTERXEVENTS" class="btn btn-blue" target="_blank">BILETA ZYRTARE</a>
+      <a href="https://zamnafestival.com" class="btn btn-official" target="_blank">🌐 FAQJA ZYRTARE E ZAMNA</a>
       <a href="https://wa.me/355692324262?text=Zamna%20VIP" class="btn btn-pink" target="_blank">WHATSAPP VIP</a>
       <a href="https://wa.me/355692324262?text=Zamna%20Regular" class="btn btn-green" target="_blank">WHATSAPP REGULAR</a>
     </div>
@@ -97,8 +100,10 @@
     <img src="blackcoffee.jpg" alt="Black Coffee">
     <div class="event-info">
       <div class="event-title">04 JUNE | BLACK COFFEE | TIRANA</div>
+      <p class="event-bio">Black Coffee është DJ & producent nga Afrika e Jugut, fitues i Grammy Award. Një nga emrat më të mëdhenj të Afro House në botë, për herë të parë në stadiumin e Atletikës, Tiranë.</p>
       <p>ATHLETICS TRACK • TIRANA</p>
       <a href="https://linktr.ee/MISTERXEVENTS" class="btn btn-blue" target="_blank">BILETA ZYRTARE</a>
+      <a href="https://blackcoffee.co.za" class="btn btn-official" target="_blank">🌐 FAQJA ZYRTARE BLACK COFFEE</a>
       <a href="https://wa.me/355692324262?text=Black%20Coffee%20VIP" class="btn btn-pink" target="_blank">WHATSAPP VIP</a>
       <a href="https://wa.me/355692324262?text=Black%20Coffee%20Regular" class="btn btn-green" target="_blank">WHATSAPP REGULAR</a>
     </div>
@@ -109,8 +114,10 @@
     <img src="sundance.jpg" alt="Sudance">
     <div class="event-info">
       <div class="event-title">SUDANCE | TIRANA</div>
+      <p class="event-bio">Sudance Festival është festivali më i madh veror në Shqipëri, që mbledh mijëra të rinj me DJ ndërkombëtarë dhe skenografi spektakolare në Tiranë.</p>
       <p>SUDANCE FESTIVAL • TIRANA</p>
       <a href="https://linktr.ee/MISTERXEVENTS" class="btn btn-blue" target="_blank">BILETA ZYRTARE</a>
+      <a href="https://www.instagram.com/sudancefestival/" class="btn btn-official" target="_blank">🌐 INSTAGRAM ZYRTAR SUDANCE</a>
       <a href="https://wa.me/355692324262?text=Sudance%20VIP" class="btn btn-pink" target="_blank">WHATSAPP VIP</a>
       <a href="https://wa.me/355692324262?text=Sudance%20Regular" class="btn btn-green" target="_blank">WHATSAPP REGULAR</a>
     </div>
@@ -121,8 +128,10 @@
     <img src="ye.jpg" alt="YE">
     <div class="event-info">
       <div class="event-title">YE | TIRANA</div>
+      <p class="event-bio">YE Event sjell një eksperiencë unike të muzikës elektronike në Tiranë me artistë të përzgjedhur dhe atmosferë underground për adhuruesit e vërtetë.</p>
       <p>YE EVENT • TIRANA</p>
       <a href="https://linktr.ee/MISTERXEVENTS" class="btn btn-blue" target="_blank">BILETA ZYRTARE</a>
+      <a href="https://www.instagram.com/" class="btn btn-official" target="_blank">🌐 FAQJA ZYRTARE E EVENTIT</a>
       <a href="https://wa.me/355692324262?text=YE%20VIP" class="btn btn-pink" target="_blank">WHATSAPP VIP</a>
       <a href="https://wa.me/355692324262?text=YE%20Regular" class="btn btn-green" target="_blank">WHATSAPP REGULAR</a>
     </div>
@@ -133,11 +142,19 @@
     <img src="unum.jpg" alt="Unum">
     <div class="event-info">
       <div class="event-title">UNUM | TIRANA</div>
+      <p class="event-bio">Unum Festival është festivali i parë shqiptar në Shëngjin që kombinon muzikën elektronike me natyrën. Tani vjen edhe në Tiranë me një edicion special.</p>
       <p>UNUM FESTIVAL • TIRANA</p>
       <a href="https://linktr.ee/MISTERXEVENTS" class="btn btn-blue" target="_blank">BILETA ZYRTARE</a>
+      <a href="https://unumfestival.com" class="btn btn-official" target="_blank">🌐 FAQJA ZYRTARE UNUM</a>
       <a href="https://wa.me/355692324262?text=Unum%20VIP" class="btn btn-pink" target="_blank">WHATSAPP VIP</a>
       <a href="https://wa.me/355692324262?text=Unum%20Regular" class="btn btn-green" target="_blank">WHATSAPP REGULAR</a>
     </div>
+  </div>
+
+  <!-- HARTA ZBRET KËTU POSHTË EVENTEVE -->
+  <h2 class="section-title">LOKACIONET E EVENTEVE</h2>
+  <div class="map-box">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47888.79074415406!2d19.780867!3d41.327546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1350310470fac5db%3A0x40092af10653720!2sTirana!5e0!3m2!1sen!2sal!4v1700000000000!5m2!1sen!2sal" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 
   <!-- GALERIA -->
@@ -181,10 +198,10 @@
   <!-- FOOTER -->
   <div class="footer">
     <h3>RRETH NESH</h3>
-    <p>Mister X Events është platforma #1 në Shqipëri për bileta VIP & Regular të eventeve më të mëdha elektronike në Tiranë. Ne bashkëpunojmë direkt me organizatorët për të sjellë çmimet më të mira dhe shërbimin më të shpejtë via WhatsApp.</p>
+    <p>Mister X Events është platformë e pavarur #1 në Shqipëri për rezervime VIP & Regular të eventeve më të mëdha elektronike në Tiranë. Ne NUK jemi shitës zyrtar, por bashkëpunojmë me partnerë për të sjellë çmimet më të mira dhe shërbimin më të shpejtë via WhatsApp. Qëllimi ynë është t'ju kursejmë kohë dhe t'ju garantojmë aksesin më të mirë në evente.</p>
     
     <h3>KUSHTET E SHËRBIMIT</h3>
-    <p>1. Biletat e shitura nuk kthehen. 2. Pagesa bëhet në momentin e konfirmimit via WhatsApp. 3. Çdo biletë është e personalizuar me emër. 4. Mosha minimale për eventet është 18 vjeç. 5. Mister X Events rezervon të drejtën të anulojë porosinë në rast mashtrimi.</p>
+    <p>1. Biletat e shitura nuk kthehen. 2. Pagesa bëhet në momentin e konfirmimit via WhatsApp. 3. Çdo biletë është e personalizuar me emër. 4. Mosha minimale për eventet është 18 vjeç. 5. Mister X Events rezervon të drejtën të anulojë porosinë në rast mashtrimi. 6. Ne veprojmë si ndërmjetës dhe nuk mbajmë përgjegjësi për ndryshimet e organizatorit zyrtar.</p>
     
     <div class="footer-links">
       <a href="https://www.tiktok.com/@jorgogiorgio" target="_blank">TikTok</a>
@@ -197,6 +214,7 @@
       <p><strong>MBROJTJA LIGJORE</strong></p>
       <p>© 2026 Mister X Events. Të gjitha të drejtat e rezervuara. Ky website operon në përputhje me ligjet e Republikës së Shqipërisë. Të dhënat personale mbrohen sipas GDPR. Për çdo ankesë kontaktoni: +355 69 232 4262</p>
       <p>Emri i biznesit: Mister X Events | NIPT: Në proces regjistrimi | Adresa: Tiranë, Shqipëri</p>
+      <p><strong>DISCLAIMER:</strong> Logot dhe emrat e eventeve janë pronë e organizatorëve përkatës. Mister X Events nuk ka lidhje zyrtare me ta.</p>
     </div>
   </div>
 
