@@ -5,32 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MisterXevents.al - Bileta VIP Tirana</title>
   <meta name="theme-color" content="#000000">
+  <meta name="description" content="Mister X Events - Bileta VIP & Regular për eventet më të mëdha në Tiranë. Zamna, Black Coffee, Sudance, YE, Unum.">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="logo.png">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #000; color: #fff; font-family: 'Arial', sans-serif; padding-bottom: 80px; }
-    .header { padding: 20px; text-align: center; border-bottom: 2px solid #00f5ff; }
+    body { background: #000; color: #fff; font-family: Arial, sans-serif; padding-bottom: 40px; }
+    .header { padding: 20px; text-align: center; border-bottom: 2px solid #00f5ff; background: #000; }
+    .header-logo { width: 120px; height: 120px; margin: 0 auto 15px; display: block; border-radius: 50%; border: 3px solid #00f5ff; box-shadow: 0 0 20px #00f5ff; }
+    .hero-img { width: 100%; max-height: 200px; object-fit: cover; margin-bottom: 15px; border-radius: 10px; border: 2px solid #00f5ff; }
     .header h1 { font-size: 28px; color: #00f5ff; text-shadow: 0 0 10px #00f5ff; letter-spacing: 2px; }
-    .header p { color: #aaa; margin-top: 5px; }
-    .social { display: flex; justify-content: center; gap: 15px; margin: 20px 0; flex-wrap: wrap; }
-    .social a { padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 14px; }
+    .header p { color: #aaa; margin-top: 5px; font-size: 14px; }
+    .social { display: flex; justify-content: center; gap: 10px; margin: 20px; flex-wrap: wrap; }
+    .social a { padding: 12px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 13px; }
     .tiktok { background: linear-gradient(45deg, #ff0050, #00f2ea); color: #fff; }
     .insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
-    .section-title { text-align: center; font-size: 24px; color: #00f5ff; margin: 30px 0 10px; }
-    .map-container { margin: 20px; }
-    .map-container iframe { width: 100%; height: 300px; border: 2px solid #00f5ff; border-radius: 10px; }
+    .section-title { text-align: center; font-size: 22px; color: #00f5ff; margin: 30px 0 15px; }
+    .map-box { margin: 0 20px 30px; }
+    .map-box iframe { width: 100%; height: 280px; border: 2px solid #00f5ff; border-radius: 10px; }
     .event-card { margin: 20px; border: 2px solid #00f5ff; border-radius: 15px; overflow: hidden; background: #0a0a0a; box-shadow: 0 0 20px rgba(0,245,255,0.3); }
-    .event-card img { width: 100%; height: 300px; object-fit: cover; display: block; }
+    .event-card img { width: 100%; height: 280px; object-fit: cover; display: block; }
     .event-info { padding: 15px; }
-    .event-title { font-size: 22px; color: #00f5ff; margin-bottom: 10px; }
-    .hot { background: red; color: white; padding: 3px 8px; border-radius: 5px; font-size: 12px; margin-left: 5px; }
-    .event-info p { color: #ccc; font-size: 14px; margin-bottom: 15px; line-height: 1.5; }
-    .btn { display: block; width: 100%; padding: 15px; margin: 10px 0; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; text-align: center; text-decoration: none; cursor: pointer; }
+    .event-title { font-size: 20px; color: #00f5ff; margin-bottom: 8px; }
+    .hot { background: red; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px; }
+    .event-info p { color: #ccc; font-size: 13px; margin-bottom: 12px; line-height: 1.4; }
+    .btn { display: block; width: 100%; padding: 14px; margin: 8px 0; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; text-align: center; text-decoration: none; cursor: pointer; }
     .btn-blue { background: #00a8ff; color: #fff; }
     .btn-pink { background: #ff0080; color: #fff; }
     .btn-green { background: #00ff88; color: #000; }
-    #musicBtn { position: fixed; top: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: #000; border: 3px solid #00f5ff; font-size: 30px; z-index: 999; cursor: pointer; box-shadow: 0 0 15px #00f5ff; }
+    #musicBtn { position: fixed; top: 15px; right: 15px; width: 55px; height: 55px; border-radius: 50%; background: #000; border: 3px solid #00f5ff; font-size: 28px; z-index: 999; cursor: pointer; box-shadow: 0 0 15px #00f5ff; }
+    
+    /* GALERIA */
+    .gallery { margin: 40px 20px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .gallery-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; border: 2px solid #00f5ff; }
+    
+    /* IKONAT/PËRFITIMET */
+    .features { margin: 40px 20px; }
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .feature-box { background: #0a0a0a; border: 2px solid #00f5ff; border-radius: 15px; padding: 20px; text-align: center; }
+    .feature-box .icon { font-size: 40px; margin-bottom: 10px; }
+    .feature-box h4 { color: #00f5ff; font-size: 16px; margin-bottom: 8px; }
+    .feature-box p { color: #aaa; font-size: 12px; }
+    
+    .footer { margin-top: 50px; padding: 30px 20px; border-top: 2px solid #00f5ff; background: #0a0a0a; }
+    .footer h3 { color: #00f5ff; font-size: 18px; margin-bottom: 15px; text-align: center; }
+    .footer p { color: #aaa; font-size: 13px; line-height: 1.6; margin-bottom: 15px; text-align: justify; }
+    .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 20px 0; }
+    .footer-links a { color: #00f5ff; text-decoration: none; font-size: 14px; }
+    .legal { border-top: 1px solid #333; padding-top: 20px; margin-top: 20px; }
+    .legal p { font-size: 11px; color: #666; text-align: center; }
   </style>
 </head>
 <body>
@@ -40,6 +64,8 @@
   </audio>
 
   <div class="header">
+    <img src="logo.png" alt="Mister X Events Logo" class="header-logo">
+    <img src="hero.jpg" alt="Mister X Events" class="hero-img">
     <h1>MISTER X EVENTS</h1>
     <p>Bileta VIP & Regular për Eventet më të Mëdha në Tiranë</p>
   </div>
@@ -50,11 +76,11 @@
   </div>
 
   <h2 class="section-title">EVENT LOCATIONS</h2>
-  <div class="map-container">
+  <div class="map-box">
     <iframe src="https://maps.google.com/maps?q=Tirana&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
   </div>
 
-  <!-- ZAMNA -->
+  <!-- 1. ZAMNA -->
   <div class="event-card">
     <img src="zamna.jpg" alt="Zamna Tirana">
     <div class="event-info">
@@ -66,12 +92,111 @@
     </div>
   </div>
 
-  <!-- BLACK COFFEE -->
+  <!-- 2. BLACK COFFEE -->
   <div class="event-card">
     <img src="blackcoffee.jpg" alt="Black Coffee">
     <div class="event-info">
       <div class="event-title">04 JUNE | BLACK COFFEE | TIRANA</div>
-      <a href="https://wa.me/355692324262?text=Black%20Coffee%20Info" class="btn btn-pink" target="_blank">REZERVO TANI</a>
+      <p>ATHLETICS TRACK • TIRANA</p>
+      <a href="https://linktr.ee/MISTERXEVENTS" class="btn btn-blue" target="_blank">BILETA ZYRTARE</a>
+      <a href="https://wa.me/355692324262?text=Black%20Coffee%20VIP" class="btn btn-pink" target="_blank">WHATSAPP VIP</a>
+      <a href="https://wa.me/355692324262?text=Black%20Coffee%20Regular" class="btn btn-green" target="_blank">WHATSAPP REGULAR</a>
+    </div>
+  </div>
+
+  <!-- 3. SUDANCE -->
+  <div class="event-card">
+    <img src="sundance.jpg" alt="Sudance">
+    <div class="event-info">
+      <div class="event-title">SUDANCE | TIRANA</div>
+      <p>SUDANCE FESTIVAL • TIRANA</p>
+      <a href="https://linktr.ee/MISTERXEVENTS" class="btn btn-blue" target="_blank">BILETA ZYRTARE</a>
+      <a href="https://wa.me/355692324262?text=Sudance%20VIP" class="btn btn-pink" target="_blank">WHATSAPP VIP</a>
+      <a href="https://wa.me/355692324262?text=Sudance%20Regular" class="btn btn-green" target="_blank">WHATSAPP REGULAR</a>
+    </div>
+  </div>
+
+  <!-- 4. YE -->
+  <div class="event-card">
+    <img src="ye.jpg" alt="YE">
+    <div class="event-info">
+      <div class="event-title">YE | TIRANA</div>
+      <p>YE EVENT • TIRANA</p>
+      <a href="https://linktr.ee/MISTERXEVENTS" class="btn btn-blue" target="_blank">BILETA ZYRTARE</a>
+      <a href="https://wa.me/355692324262?text=YE%20VIP" class="btn btn-pink" target="_blank">WHATSAPP VIP</a>
+      <a href="https://wa.me/355692324262?text=YE%20Regular" class="btn btn-green" target="_blank">WHATSAPP REGULAR</a>
+    </div>
+  </div>
+
+  <!-- 5. UNUM -->
+  <div class="event-card">
+    <img src="unum.jpg" alt="Unum">
+    <div class="event-info">
+      <div class="event-title">UNUM | TIRANA</div>
+      <p>UNUM FESTIVAL • TIRANA</p>
+      <a href="https://linktr.ee/MISTERXEVENTS" class="btn btn-blue" target="_blank">BILETA ZYRTARE</a>
+      <a href="https://wa.me/355692324262?text=Unum%20VIP" class="btn btn-pink" target="_blank">WHATSAPP VIP</a>
+      <a href="https://wa.me/355692324262?text=Unum%20Regular" class="btn btn-green" target="_blank">WHATSAPP REGULAR</a>
+    </div>
+  </div>
+
+  <!-- GALERIA -->
+  <div class="gallery">
+    <h2 class="section-title">GALERIA E EVENTEVE</h2>
+    <div class="gallery-grid">
+      <img src="zamna.jpg" alt="Zamna">
+      <img src="blackcoffee.jpg" alt="Black Coffee">
+      <img src="sundance.jpg" alt="Sudance">
+      <img src="ye.jpg" alt="YE">
+    </div>
+  </div>
+
+  <!-- IKONAT/PËRFITIMET -->
+  <div class="features">
+    <h2 class="section-title">PSE MISTER X EVENTS?</h2>
+    <div class="features-grid">
+      <div class="feature-box">
+        <div class="icon">⚡</div>
+        <h4>Dërgesë Instant</h4>
+        <p>Biletat në WhatsApp brenda 2 minutave</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">💎</div>
+        <h4>VIP Ekskluziv</h4>
+        <p>Zona VIP + tavolina me shërbim</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">🔒</div>
+        <h4>100% Sigurt</h4>
+        <p>Bileta zyrtare të verifikuara</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">📞</div>
+        <h4>Support 24/7</h4>
+        <p>WhatsApp direkt me ne</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <h3>RRETH NESH</h3>
+    <p>Mister X Events është platforma #1 në Shqipëri për bileta VIP & Regular të eventeve më të mëdha elektronike në Tiranë. Ne bashkëpunojmë direkt me organizatorët për të sjellë çmimet më të mira dhe shërbimin më të shpejtë via WhatsApp.</p>
+    
+    <h3>KUSHTET E SHËRBIMIT</h3>
+    <p>1. Biletat e shitura nuk kthehen. 2. Pagesa bëhet në momentin e konfirmimit via WhatsApp. 3. Çdo biletë është e personalizuar me emër. 4. Mosha minimale për eventet është 18 vjeç. 5. Mister X Events rezervon të drejtën të anulojë porosinë në rast mashtrimi.</p>
+    
+    <div class="footer-links">
+      <a href="https://www.tiktok.com/@jorgogiorgio" target="_blank">TikTok</a>
+      <a href="https://www.instagram.com/xhorxho?igsh=MXBqd2hpdWJyM2pkbQ==" target="_blank">Instagram</a>
+      <a href="https://wa.me/355692324262" target="_blank">WhatsApp Support</a>
+      <a href="https://linktr.ee/MISTERXEVENTS" target="_blank">Linktree</a>
+    </div>
+
+    <div class="legal">
+      <p><strong>MBROJTJA LIGJORE</strong></p>
+      <p>© 2026 Mister X Events. Të gjitha të drejtat e rezervuara. Ky website operon në përputhje me ligjet e Republikës së Shqipërisë. Të dhënat personale mbrohen sipas GDPR. Për çdo ankesë kontaktoni: +355 69 232 4262</p>
+      <p>Emri i biznesit: Mister X Events | NIPT: Në proces regjistrimi | Adresa: Tiranë, Shqipëri</p>
     </div>
   </div>
 
@@ -89,7 +214,7 @@
           await bgMusic.play();
           musicBtn.textContent = '🔊';
         } catch(e) {
-          console.log('User must interact first');
+          console.log('User must interact');
         }
       }
       isPlaying = !isPlaying;
